@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Form</title>
+</head>
+<body>
+    <form action="{{ url_for('result') }}" method="POST">
+        <p><input type="text" name="name" placeholder="Name"></p>
+        <p><input type="text" name="Maths" placeholder="Maths"></p>
+        <p><input type="text" name="Physics" placeholder="Physics"></p>
+        <p><input type="text" name="Chemistry" placeholder="Chemistry"></p>
+        <p><input type="submit" value="Submit"></p>
+    </form>
+</body>
+</html>

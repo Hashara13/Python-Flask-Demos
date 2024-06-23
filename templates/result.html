@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+</head>
+<body>
+    <h1>Student Result</h1>
+    <table border="1">
+        {% if result %}
+            <tr>
+                <th>Name</th>
+                <td>{{ result['name'] }}</td>
+            </tr>
+            <tr>
+                <th>Maths</th>
+                <td>{{ result['Maths'] }}</td>
+            </tr>
+            <tr>
+                <th>Physics</th>
+                <td>{{ result['Physics'] }}</td>
+            </tr>
+            <tr>
+                <th>Chemistry</th>
+                <td>{{ result['Chemistry'] }}</td>
+            </tr>
+        {% endif %}
+    </table>
+</body>
+</html>
