@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>Login</title>
+</head>
+
+<body>
+
+<h1>Login</h1>
+
+{% if error %}
+    <p><strong>Error:</strong> {{ error }}</p>
+{% endif %}
+
+<form action="http://127.0.0.1:5000/contact" method="post">
+
+    <dl>
+
+        <dt>Username:</dt>
+        <dd>
+            <input type="text" name="username" value="{{ request.form.username }}">
+        </dd>
+
+        <dt>Password:</dt>
+        <dd>
+            <input type="password" name="password">
+        </dd>
+
+    </dl>
+
+    <p><input type="submit" value="Login"></p>
+
+</form>
+
+</body>
+</html>
