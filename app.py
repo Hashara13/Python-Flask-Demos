@@ -1,26 +1,21 @@
-from flask import Flask, request,session, redirect, url_for, render_template, make_response
-
+from flask import Flask, request, session, abort, flash, redirect, url_for, render_template, make_response
+from flask_mail import Mail, Message
 app = Flask(__name__)
+mail=Mail(app)
+app.config['MAIL_SERVER']='smtp.gmail.com'
+app.config['MAIL_PORT']=465
+app.config['MAIL_USERNAME']='sender mail'
+app.config['MAIL_PASSWORD']='sender mail password'
+app.config['MAIL_USE_TLS']=False
+app.config['MAIL_USE_SSL']=True
+mail=Mail(app)
 
 @app.route('/')
 def index():
-    if 'username' in session:
-        username = session['username']
-        return f"{username} is logged in from here <br><a href='/logout'>Logout</a>"
-    return "You are not logged in <br><a href='/login'>Click here to login</a>"
-
-@app.route('/login', methods=['GET', 'POST'])
-def setcookie():
-    if request.method == 'POST':
-        session['username']=request.form('username')
-        return redirect(url_for('index'))
-    return render_template('session.html')
-    
-@app.route('/logout')
-def getcookie():
-    session.pop('username',None)
-    return redirect(url_for('index'))
-
+   msg=Message('Hello',sender='your mail',recipients=['sender mail'])
+   msg.body="Flask Mail sender Activated"
+   mail.send(msg)
+   return 'Send !'
 
 if __name__ == '__main__':
     app.run(debug=True)
